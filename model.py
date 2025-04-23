@@ -5,13 +5,13 @@ from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 from langchain_core.prompts import PromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 # Load vector store
 VECTOR_STORE_PATH = "vector_store"
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-vector_store = FAISS.load_local(VECTOR_STORE_PATH, embeddings=embedding_model)
+vector_store = FAISS.load_local(VECTOR_STORE_PATH, embeddings=embedding_model, allow_dangerous_deserialization=True)
 retriever = vector_store.as_retriever()
 
 # Load LLaMA 3.1 8B
