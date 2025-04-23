@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 # Settings
-DATA_FOLDER = "docs"
+DATA_FOLDER = "./data"
 VECTOR_STORE_PATH = "vector_store"
 
 # Load documents
