@@ -5,6 +5,8 @@ from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 from langchain_core.prompts import PromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
 
 # Load vector store
 VECTOR_STORE_PATH = "vector_store"
