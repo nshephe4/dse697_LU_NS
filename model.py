@@ -1,4 +1,4 @@
-from langchain_community.llms import HuggingFacePipeline
+from langchain_huggingface import HuggingFacePipeline
 from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
@@ -34,7 +34,7 @@ Question:
 
 # Build the GRAG pipeline
 document_chain = create_stuff_documents_chain(llm=llm, prompt=prompt)
-qa_chain = create_retrieval_chain(retriever=retriever, combine_documents_chain=document_chain)
+qa_chain = create_retrieval_chain(retriever=retriever, combine_docs_chain=document_chain)
 
 # Main interaction loop
 while True:
