@@ -15,7 +15,7 @@ vector_store = FAISS.load_local(VECTOR_STORE_PATH, embeddings=embedding_model, a
 retriever = vector_store.as_retriever()
 
 # Load LLaMA 3.1 8B
-model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
+model_id = "meta-llama/Llama-3.1-8B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", torch_dtype="auto")
 llm_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer, max_new_tokens=512)
