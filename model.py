@@ -35,7 +35,7 @@ llm = HuggingFacePipeline(pipeline=llm_pipeline)
 chat_history = []
 
 # Prompt template
-pprompt_template = """
+prompt_template = """
 You are a policy assistant chatbot for the IAEA (International Atomic Energy Agency). 
 
 Use ONLY the provided documents and the conversation history to answer the user's question.  
