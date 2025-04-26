@@ -21,7 +21,7 @@ llm_pipeline = pipeline(
     "text-generation",
     model=model,
     tokenizer=tokenizer,
-    max_new_tokens=512,
+    max_new_tokens=150,
     temperature=0.1,
     return_full_text=False,
     repetition_penalty=1.2,
@@ -45,6 +45,7 @@ Use ONLY the provided documents and the conversation history to answer the user'
 - Do NOT make up any information.
 - Do NOT return or repeat the history itself in the output.
 - Do NOT hallucinate sources — only cite if they were in the provided context.
+- Do NOT return the prompt structure
 
 Format your response like this:
 
