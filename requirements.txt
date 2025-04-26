@@ -9,3 +9,4 @@ pypdf
 torch
 huggingface_hub[cli]
 cryptography
+accelerate
