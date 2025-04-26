@@ -36,7 +36,7 @@ chat_history = []
 
 # Prompt template
 prompt_template = """
-You are a policy assistant chatbot for the IAEA. Use the provided documents and the conversation history to answer the user's question. Do not use outside information. Be very formal as you are for government use. 
+You are a policy assistant chatbot for the IAEA. Use the provided documents and the conversation history to answer the user's question. Do not use outside information. Be very formal as you are for government use. Use the history but do not return the history. Summarize context.
 
 Conversation history:
 {history}
@@ -46,6 +46,8 @@ Context:
 
 Question:
 {input}
+
+Answer:
 """
 
 prompt = PromptTemplate.from_template(prompt_template)
