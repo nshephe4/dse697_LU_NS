@@ -92,7 +92,7 @@ if __name__ == '__main__':
     ax.plot(theta, values1, 'o-', linewidth=2, label='RAG Model')
     ax.fill(theta, values1, alpha=0.25)
 
-    ax.plot(theta, values2, 's--', linewidth=2, label='SECOND Model')
+    ax.plot(theta, values2, 's--', linewidth=2, label='Base Model')
     ax.fill(theta, values2, alpha=0.25)
 
     ax.set_varlabels(metrics)
