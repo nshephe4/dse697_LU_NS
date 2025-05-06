@@ -9,12 +9,7 @@ from matplotlib.path import Path
 from matplotlib.projections import register_projection
 
 def radar_factory(num_vars, frame='circle'):
-    """
-    Create a radar chart with `num_vars` Axes.
-    This function creates a RadarAxes projection and registers it.
-    """
-    # calculate evenly-spaced axis angles
-    theta = np.linspace(0, 2*np.pi, num_vars, endpoint=False)
+    theta = np.linspace(0, 2 * np.pi, num_vars, endpoint=False)
 
     class RadarTransform(PolarAxes.PolarTransform):
         def transform_path_non_affine(self, path):
@@ -52,8 +47,7 @@ def radar_factory(num_vars, frame='circle'):
             if frame == 'circle':
                 return Circle((0.5, 0.5), 0.5)
             elif frame == 'polygon':
-                return RegularPolygon((0.5, 0.5), num_vars,
-                                        radius=.5, edgecolor="k")
+                return RegularPolygon((0.5, 0.5), num_vars, radius=.5, edgecolor="k")
             else:
                 raise ValueError("Unknown value for 'frame': %s" % frame)
 
@@ -61,9 +55,7 @@ def radar_factory(num_vars, frame='circle'):
             if frame == 'circle':
                 return super()._gen_axes_spines()
             elif frame == 'polygon':
-                spine = Spine(axes=self,
-                                spine_type='circle',
-                                path=Path.unit_regular_polygon(num_vars))
+                spine = Spine(axes=self, spine_type='circle', path=Path.unit_regular_polygon(num_vars))
                 spine.set_transform(Affine2D().scale(.5).translate(.5, .5) + self.transAxes)
                 return {'polar': spine}
             else:
@@ -73,18 +65,14 @@ def radar_factory(num_vars, frame='circle'):
     return theta
 
 if __name__ == '__main__':
-    # Load and normalize data
-    df = pd.read_csv('RAG_evaluation_results.csv')
-    
-    # Normalize the 'Value' column (if that's the column you're using for evaluation)
-    df['Normalized_Score'] = df['Value'] / df['Value'].max()
+    # Load both CSVs
+    df1 = pd.read_csv('RAG_evaluation_results.csv')
+    df2 = pd.read_csv('../RAG_evaluation_results_basemodel.csv')
 
-    # Save the updated DataFrame to a new CSV file
-    df.to_csv('RAG_evaluation_results_with_normalized_scores.csv', index=False)
-
-    # Prepare for radar chart
-    metrics = df['Metric'].tolist()
-    values = df['Normalized_Score'].tolist()
+    # Use raw values
+    metrics = df1['Metric'].tolist()
+    values1 = df1['Value'].tolist()
+    values2 = df2['Value'].tolist()
 
     N = len(metrics)
     theta = radar_factory(N, frame='polygon')
@@ -93,21 +81,27 @@ if __name__ == '__main__':
     ax.set_title("Model Evaluation Radar Plot", weight='bold', size='medium')
 
     # Dynamic r-grid scaling
-    max_value = max(values)
-    padded_max = round(max_value + 0.2, 1)
+    max_value = max(max(values1), max(values2))
+    padded_max = round(max_value + 0.2 * max_value, 1)
     num_levels = 5
     grid_levels = np.linspace(0, padded_max, num_levels)
     ax.set_rgrids(grid_levels, labels=[f"{vl:.1f}" for vl in grid_levels])
     ax.set_ylim(0, padded_max)
 
-    # Plot data
-    ax.plot(theta, values, 'o-', linewidth=2)
-    ax.fill(theta, values, alpha=0.25)
+    # Plot both datasets
+    ax.plot(theta, values1, 'o-', linewidth=2, label='RAG Model')
+    ax.fill(theta, values1, alpha=0.25)
+
+    ax.plot(theta, values2, 's--', linewidth=2, label='SECOND Model')
+    ax.fill(theta, values2, alpha=0.25)
+
     ax.set_varlabels(metrics)
 
     for txt in ax.texts:
         txt.set_fontsize(12)
 
+    ax.legend(loc='upper right', bbox_to_anchor=(1.1, 1.1))
+
     # Save the plot
-    plt.savefig("model_evaluation_radar_plot.png", bbox_inches="tight", dpi=300, format="png")
+    plt.savefig("model_comparison_radar_plot.png", bbox_inches="tight", dpi=300, format="png")
     plt.close()
