@@ -71,7 +71,8 @@ def evaluate(expected, predicted, is_yes_no=None, hq_data=None):
         results["ROUGE-L"].append(rouge_scores["rougeL"].fmeasure)
 
         # BLEU Score
-        results["BLEU"].append(sentence_bleu([e.split()], p.split()),smoothing_function=smoothing.method4)
+        results["BLEU"].append(sentence_bleu([e.split()], p.split(), smoothing_function=smoothing.method4))
+
 
         # Cosine Similarity
         query_embedding = sim_model.encode(e, convert_to_tensor=True)
