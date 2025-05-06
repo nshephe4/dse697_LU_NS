@@ -1,0 +1,8 @@
+Metric,Value
+Exact Match,0.0000
+ROUGE-1,0.1668
+ROUGE-2,0.0568
+ROUGE-L,0.1458
+BLEU,0.0158
+Cosine Similarity,0.6297
+YesNoScore,0.2500
