@@ -1,39 +1,5 @@
 ﻿Policy Name,Policy Number,Section Header,Subsection Header,Subsubsection Header,Section/Subsection/Subsubsection Numbers,Question,Generated Answer
-INFCIRC/153,INFCIRC/153,Purpose of Agreements,,,,What is the purpose of safeguards agreements according to Section 1 of INFCIRC/153?,"I don't have access to a search engine to provide information on what section one of INFCIRC/153 states. However, I can tell you that safeguard agreements are international treaties between countries and the International Atomic Energy Agency (IAEA) aimed at ensuring peaceful use of nuclear energy by verifying compliance with non-proliferation obligations.
-According to Article III.A(4), B(5)(a) and C(3) of the Treaty on Non-Proliferation of Nuclear Weapons (NPT), signatory nations agree not to manufacture or otherwise acquire fissile material for military purposes. Safeguard agreements under this treaty require member states to allow inspectors from the IAEA to verify their adherence to these terms.
-
-Safeguards agreements typically include
-
-Ask a question (or type 'exit'): exi
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.    
-^[[A
-Answer: It seems like your message got cut off! You were asking about something related to safeguards agreements, but it looks like there's no text afte
-r ""exi"". Could you please rephrase or complete your question? I'll do my best to help!
-
-Ask a question (or type 'exit'): ^CTraceback (most recent call last):       
-  File ""/gpfs/wolf2/olcf/trn040/scratch/nshephe4/dse697_LU_NS/base_model.py"", line 13, in <module>
-    query = input(""\nAsk a question (or type 'exit'): "")
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-
-(hf-transformers) [nshephe4@login1.odo dse697_LU_NS]$ git pull
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (1/1), done.
-remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0 (from 0)       
-Unpacking objects: 100% (3/3), 279 bytes | 55.00 KiB/s, done.
-From https://github.com/nshephe4/dse697_LU_NS
-   8bbfbe7..f1ee55e  main       -> origin/main
-Merge made by the 'ort' strategy.
- base_model.py | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-(hf-transformers) [nshephe4@login1.odo dse697_LU_NS]$  python base_model.py 
-Loading checkpoint shards: 100%|██████████████| 4/4 [00:07<00:00,  1.88s/it]
-
-Ask a question (or type 'exit'): What is the purpose of safeguards agreements according to Section 1 of INFCIRC/153?
-Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.    
-
-Answer: I don't have access to a search engine to provide information on what section one of INFICRIC/153 states about safeguard agreement. However, I can tell you that Safeguards Agreements are international treaties between countries and the International Atomic Energy Agency (IAEA) aimed at ensuring that nuclear materials and facilities within a country's borders do not contribute to the development or acquisition of nuclear weapons.
+INFCIRC/153,INFCIRC/153,Purpose of Agreements,,,,What is the purpose of safeguards agreements according to Section 1 of INFCIRC/153?,"Answer: I don't have access to a search engine to provide information on what section one of INFICRIC/153 states about safeguard agreement. However, I can tell you that Safeguards Agreements are international treaties between countries and the International Atomic Energy Agency (IAEA) aimed at ensuring that nuclear materials and facilities within a country's borders do not contribute to the development or acquisition of nuclear weapons.
 
 These agreements typically involve regular inspections by IAEA inspectors to verify compliance with certain conditions related to nuclear activities in the signatory state. The primary purposes of these agreements include:      
 
