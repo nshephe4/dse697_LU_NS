@@ -25,7 +25,7 @@ while True:
     # Generate response
     outputs = model.generate(
         **inputs,
-        max_new_tokens=150,
+        max_new_tokens=512,
         temperature=0.1,
         repetition_penalty=1.2,
         top_p=0.95,
